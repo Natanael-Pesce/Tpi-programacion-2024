@@ -260,12 +260,11 @@ def jugar_ahorcado():
       print("Regresando al menu")
       menu()
 
-randomNum = random.randint(1, 20)
-intents = 0
-
 #Codigo de Victor
 
 def adivinaelNum():
+    randomNum = random.randint(1, 20)
+    intents = 0
     print('Intenta adivinar el número entre 1 y 20. Tienes 5 intentos.')
 
     while intents < 5:
