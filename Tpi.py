@@ -1,3 +1,4 @@
+
 Prueva = open("puntuacion.txt", "a")
 Prueva.close
 
@@ -50,6 +51,7 @@ def Piedra_papel_tijera():
 
     if Players == 1:
         Nombre_jugador = str(input("Ingrese su nombre: "))
+        print(f"Bienvenido {Nombre_jugador}")
         print("Jugaras contra la maquina")
         print("Te toca")
         game = True
@@ -84,36 +86,32 @@ def Piedra_papel_tijera():
                 print("El Bot gana")
                 bot = bot + 1
         
-            print("Desea seguir jugando?")
-            sigue=str(input("Enter para Y \nN=no \n "))
+        print("Desea seguir jugando?")
+        sigue=str(input("Y=yes \nN=no \n "))
 
-            if sigue == "n" or sigue == "N":
-                game = False
-            else:
-                game = True
+        if sigue == "n" or sigue == "N":
+            game = False
+        else:
+            game = True
 
         print("Las victorias obtenidas por el jugador son: ")
         print(bot1)
         print("Las victorias obtenidas por la maquina son: ")
         print(bot)
-
-        Prueva = open("puntuacion.txt", "a")
-        Prueva.write(f"Jugador {Nombre_jugador} vs La maquina \n Puntaje = 35 vs 45 \n")
+        Prueva = open("puntuacion.txt", "w")
+        Prueva.write(f"Jugador {Nombre_jugador} vs La maquina \n Puntaje = {bot1} vs {bot} \n")
         Prueva.close
-
         print("Volvemos al menu")
         menu()
 
     if Players == 2:
-        Nombre1 = str(input("Ingrese el nombre primer jugador: "))
-        Nombre2 = str(input("Ingrese su nombre segundo jugador: "))
+        Nombre1 = str(input("Ingrese su nombre el primer jugador: "))
+        Nombre2 = str(input("Ingrese su nombre el segundo jugador:  "))
         print("Bien esto sera a turnos asi que va el jugador uno: ")
         game = True
         while game == True:
-            JugadorA = int(input("turno del primer jugador: 1  piedra , 2 papel , 3 tijeras \n "))
-            os.system('cls')
-            JugadorB = int(input("turno del segundo jugador: 1  piedra , 2 papel , 3 tijeras \n "))
-            os.system('cls')
+            JugadorA = int(input("1 es piedra , 2 papel , 3 tijeras \n "))
+            JugadorB = int(input("1 es piedra , 2 papel , 3 tijeras \n "))
 
             if JugadorA == 1 and JugadorB == 3:
                 print("El jugador 1 gana")
@@ -143,10 +141,10 @@ def Piedra_papel_tijera():
                 Jugador2 = Jugador2 + 1
         
             print("Desea seguir jugando?")
-            sigue=str(input("Enter para Y \nN=no \n "))
+            sigue=str(input("Y=yes \nN=no \n "))
 
             if sigue == "n" or sigue == "N":
-                game = False
+               game = False
             else:
                 game = True
     
@@ -154,9 +152,8 @@ def Piedra_papel_tijera():
         print(jugador1)
         print("Las victorias obtenidas por la jugador 2 son: ")
         print(Jugador2)
-
         Prueva = open("puntuacion.txt", "a")
-        Prueva.write(f"Jugador {Nombre1} vs Jugador {Nombre2} \n puntaje = 44 vs 30 \n")
+        Prueva.write(f"Jugador {Nombre1} vs Jugador {Nombre2} \n puntaje = {jugador1} vs {Jugador2} \n")
         Prueva.close
 
         print("Volvemos al menu")
@@ -260,12 +257,14 @@ def jugar_ahorcado():
       print("Regresando al menu")
       menu()
 
+
+
 #Codigo de Victor
 
 def adivinaelNum():
+    print('Intenta adivinar el número entre 1 y 20. Tienes 5 intentos.')
     randomNum = random.randint(1, 20)
     intents = 0
-    print('Intenta adivinar el número entre 1 y 20. Tienes 5 intentos.')
 
     while intents < 5:
         print(f'Intento {intents + 1}')
